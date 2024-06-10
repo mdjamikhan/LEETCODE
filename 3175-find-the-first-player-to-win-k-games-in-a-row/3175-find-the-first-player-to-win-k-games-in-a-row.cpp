@@ -5,6 +5,7 @@ public:
         int n=skills.size();
         int count=0;
         int index=0;
+        int mini=skills[0];//
         if(k>=n){
             for(int i=0;i<n;i++)
             {
@@ -15,14 +16,14 @@ public:
             return index;
         }
         
-        for(int i=1;i<n-1;i++)
+        for(int i=1;i<n;i++)
         {
             if(skills[index]>skills[i]){
-                count++;   
+                ++count;   
             }
             else{
                 index=i;
-                count=0;
+                count=1;
             }
 
             if(count==k) break;
