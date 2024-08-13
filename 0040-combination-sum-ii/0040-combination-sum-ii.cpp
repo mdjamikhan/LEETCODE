@@ -2,7 +2,6 @@ class Solution {
 public:
 void solve(int i,vector<int>& candidates, int target,vector<int>&take,vector<vector<int>>&ans)
 {
-
             if(target==0){
 
                 ans.push_back(take);
