@@ -22,7 +22,7 @@ public:
                 ans->next=r;
                 temp=temp->next;
                 ans=ans->next;
-               // ans=ans->next;
+              
 
             }
             else{
