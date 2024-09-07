@@ -21,35 +21,24 @@
  */
 class Solution {
 public:
-bool check=false;
-void solve(ListNode *head,TreeNode *root,unordered_map<TreeNode*, bool>&visited){
-    if(root==NULL || head==NULL) return;
-
-    if(head->val==root->val && !visited[root]){
-        
-        head=head->next;
-    }
-    if(head==NULL) {
-        check=true;
-    }
-
-
-    visited[root]=true;
-    solve(head,root->left,visited);
-    solve(head,root->right,visited);
-
-
+    bool check = false;
     
+    bool solve(ListNode *head, TreeNode *root) {
+        if(head==NULL) return true;
+        if (root == NULL ) return false;
 
+        if (head->val == root->val) {
+           
+            return  solve(head->next, root->left) || solve(head->next, root->right);
+        }
+        return false; 
+    }
 
-}
     bool isSubPath(ListNode* head, TreeNode* root) {
-       unordered_map<TreeNode*, bool>visited;
-        solve(head,root,visited);
+        if(root==NULL) return false;
+       
+        return solve(head,root) || isSubPath(head,root->left)|| isSubPath(head,root->right);
 
-        // isSubPath(head,root->left);
-        // isSubPath(head,root->right);
-        return check;
         
     }
 };
