@@ -1,30 +1,26 @@
 class Solution {
 public:
     int minLength(string s) {
-        int f=1;
        
         
-        while(1)
+        for(int i=0;i<s.size();i++)
         {
             string k="";
-            int check=0;
-           
+            int f=0;
             for(int j=0;j<s.size();j++){
-                if( j<s.size()-1  && ((s[j+1]=='B' && s[j]=='A') || (s[j]=='C' && s[j+1]=='D'))){
-                   check=1;
+                if( j<s.size()-1  && (s[j+1]=='B' && s[j]=='A') || (s[j]=='C' && s[j+1]=='D')){
+                    f=1;
                     j++;
                 }
                 else{
-                    
                     k+= s[j];  
                 }
                 
             }
-           if(!check) break;
+            if(!f) break;
            
             s=k;
         }
-            if(s=="AB" || s=="CD") return 0;
         return s.size();
         
         
