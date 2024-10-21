@@ -1,7 +1,6 @@
 class Solution {
 public:
-
-int  solve(int i,string s,unordered_set<string>&mp){
+int  solve(int i,string s,unordered_map<string,int>&mp){
     if(i==s.size()) return 0;
 
     string p="";
@@ -10,21 +9,15 @@ int  solve(int i,string s,unordered_set<string>&mp){
     {
          p+=s[j];
          if(mp.find(p)==mp.end()){
-           // maxic++;
-             mp.insert(p);
+             mp[p]++;
              maxic=max(maxic,1+solve(j+1,s,mp));
              mp.erase(p);
-            
          }
     }
     return maxic;
 }
     int maxUniqueSplit(string s) {
-        unordered_set<string>mp;
-        return solve(0,s,mp);
-       // return count;
-
-
-        
+        unordered_map<string,int>mp;
+        return solve(0,s,mp);       
     }
 };
