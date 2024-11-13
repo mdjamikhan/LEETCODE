@@ -12,9 +12,7 @@ public:
                     q.push({{i,j},0});
                     vis[i][j]=1;
                 }
-                else{
-                    vis[i][j]=0;
-                }
+   
             }
         }
         int rowMove[]={-1,0,1,0};
@@ -34,7 +32,7 @@ public:
                     int nrow=row+rowMove[i];
                     int ncol=col+colMove[i];
                 
-                    if(nrow>=0 && nrow<n && ncol>=0 && ncol<m &&!vis[nrow][ncol]  ){
+                    if(nrow>=0 && nrow<n && ncol>=0 && ncol<m &&!vis[nrow][ncol] && mat[nrow][ncol]==1  ){
                         q.push({{nrow,ncol},ti+1});
                         vis[nrow][ncol]=1;
                     }
